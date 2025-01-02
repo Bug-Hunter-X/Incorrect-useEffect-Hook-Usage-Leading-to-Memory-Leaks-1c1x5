@@ -1,0 +1,23 @@
+```javascript
+//Incorrect usage of useEffect hook
+import React, { useState, useEffect } from 'react';
+
+function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log('Component mounted');
+    //Missing return statement to cleanup the effect
+    //This could lead to memory leaks
+  });
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </div>
+  );
+}
+
+export default MyComponent;
+```
